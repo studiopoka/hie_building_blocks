@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -45,6 +46,8 @@ strong{color:var(--ink);font-weight:700}
 .chain{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;margin:22px 0 8px;padding:0;list-style:none}
 .chain li{position:relative;font:600 15px 'Plus Jakarta Sans',sans-serif;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px;white-space:nowrap}
 .chain li:not(:last-child)::after{content:"›";position:absolute;right:-19px;top:50%;transform:translateY(-54%);color:var(--pink);font-weight:700;font-size:18px}
+.chain.tags{gap:10px}.chain.tags li::after{content:none}
+.chain.tags li{background:var(--tint);border-color:transparent}
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
@@ -123,11 +126,11 @@ figure.hie:fullscreen figcaption{display:none}
 
 <main>
 <div class="wrap">
-<p class="lead">The Human Insights Engine (HIE) is an evidence-informed and AI-powered simulation tool that helps development organisations explore potential responses to a proposed policy, program, product, service or message before resources are committed. It turns relevant real-world evidence into directional hypotheses for a defined population, geography, behavioural question and use case.</p>
+<p class="lead">The Human Insights Engine (HIE) is an evidence-informed and AI-powered simulation tool that helps development organisations explore potential responses to a proposed policy, program, product, service or message before resources are committed. It turns relevant real-world evidence into directional hypotheses for a defined population, geography, behavioural question, and use case. It is not a replacement for real-world activities, but a conduit and complementary asset to problem-solve faster, more robustly, and with more resource-efficient approaches. It works very well with established real-world research, data collection, prototyping, pilots, and at-scale implementation practices.</p>
 <p>HIE does not write virtual personas as character descriptions or prompts. It converts real-world evidence into machine-readable behavioural agents, places them in structured social and research environments, and runs repeated simulations under explicit rules, constraints and confidence checks. The result is simulation that is bounded by evidence, stateful over time and auditable after the fact.</p>
 
 <h2><span class="n">01</span>The evidence base</h2>
-<p>Every virtual persona, behaviour, interaction and sandbox in HIE is grounded in real-world evidence: qualitative research, surveys, population datasets, longitudinal records and other public and private sources.</p>
+<p>Every virtual persona, behaviour, interaction and sandbox in HIE is grounded in real-world evidence: qualitative research, surveys, population datasets, longitudinal records and other public and private sources. HIE has an ever-growing evidence corpus.</p>
 </div>
 <div class="wide"><div class="stats">
 <div class="stat"><b>3.2 Bn</b><span>Real-world research data points</span><small>Used to ground virtual personas, behaviours, interactions and sandboxes</small></div>
@@ -138,13 +141,39 @@ figure.hie:fullscreen figcaption{display:none}
 <div class="wrap">
 <p>That evidence is mapped into a common schema. It is never pasted directly into a language model prompt. From there, one logic chain runs through the whole engine:</p>
 <ol class="chain" aria-label="HIE logic chain"><li>Evidence</li><li>Virtual persona schema</li><li>Instantiation</li><li>Rules</li><li>Interaction</li><li>Cohort</li><li>Instrument</li><li>Simulation</li><li>Confidence</li><li>Validation</li></ol>
+
+<h2><span class="n">02</span>How the engine was trained</h2>
+<p>HIE began as a shell: machine learning code that defines how a virtual persona is constructed, with metrics across four categories: demographics, psychographics, behaviours and context. On its own, the shell knows the shape of a virtual person but nothing about specific characteristics that define it.</p>
+<p>We trained it on a wide range of real-world data, including human-centered design primary research, in-field observations, household and national surveys, census data, quantitative research studies, clinical and programme data, longitudinal series data, and more. Large language models (LLMs) made the training fast and feasible, reading and structuring very different sources and mapping them into the shell's common schema. That structured evidence trained the machine learning code and let us find the right weights, turning a static shell into a dynamic machine learning schema that can generate new virtual personas whenever new data is loaded.</p>
+</div>
+<div class="wide"><div class="grid3">
+<div class="card tint"><span class="k">Data-sets by Dalberg</span><h4>Engagements over 25 years</h4><p style="margin:0">Dalberg brings over two decades of primary research experience on macroeconomic, demographic, behavioral, and psychographic factors across multiple LMICs. We use the insights to co-design and problem-solve with governments, social/private enterprises, and NGOs.</p></div>
+<div class="card"><span class="k">National household and health surveys</span><h4>Population baselines</h4><p style="margin:0">For example, GAVI / UNICEF / WHO datasets, NFHS-5 (India), DHS (Kenya, Nigeria, Ghana, Tanzania, Bangladesh), NAIIS (Nigeria), IHDS-II and NSSO 75th Round, plus census and open government data, among others.</p></div>
+<div class="card"><span class="k">Health research and clinical evidence</span><h4>Behaviour in care</h4><p style="margin:0">For example, IBBSS key population surveillance and PrEP cohort studies (Nigeria), Nivi.io data from Uganda/India etc., the National Mental Health Survey of India, the HAP and Atmiyata community mental health trials, and conversational maternal health data, among others.</p></div>
+<div class="card"><span class="k">Livelihoods and enterprise</span><h4>Economic lives</h4><p style="margin:0">For example, DAY-NRLM self-help group registries, the PRADAN women's collectives panel, IWWAGE enterprise diaries, Dalberg's "Becoming Someone" aspiration study, and rural digital enterprise field audits, among others.</p></div>
+<div class="card"><span class="k">Agriculture and climate</span><h4>Farms and weather</h4><p style="margin:0">For example, smallholder agronomic and input adoption studies in Kenya, agricultural extension records, and India Meteorological Department climate and heat data, Digital Green data from their primary research, longitudinal ten-year climate-heat series data across countries, among others.</p></div>
+<div class="card"><span class="k">Education</span><h4>Learning</h4><p style="margin:0">For example, ASER learning outcomes, alongside national school health and well-being frameworks; Acumen Academy published results, Teach For All and country-level published results, national education surveys, among others.</p></div>
+</div></div>
+<div class="wrap">
+<p>The above are a few examples of the types of input data we have used to train the model. The Human Insights Engine doesn't retain the prior training data. The training taught us <strong>the quality and quantity of data needed</strong> to generate new virtual personas and virtual worlds for a specific problem. That formula is what let us build demo centres, mini virtual worlds dedicated to specific problem-solving spaces.</p>
+<p>This has helped us codify the approach needed to build any new set of virtual personas and virtual worlds for specific problem areas, and do it quickly and efficiently. It tells us what kind of data to collect first. Once that foundation is built, it can be reused to solve many more problems, not just the first one.</p>
+<h3>Two principles that keep the engine honest</h3>
+</div>
+<div class="wide" style="max-width:808px"><div class="cols">
+<div class="card tint"><span class="k">Principle 1</span><h4>Trained only on inputs</h4><p style="margin:0">When we use a study, we train only on its original responses, never on the study's outputs or findings.</p></div>
+<div class="card tint2"><span class="k">Principle 2</span><h4>Simulated data never goes back in</h4><p style="margin:0">Nothing the engine generates is ever fed back into the platform as training data.</p></div>
+</div></div>
+<div class="wrap">
+<p>Both guard against the same failure. Feeding in simulated data risks hallucination compounding over time. Feeding in a study's outputs risks the model, over time, referencing those answers instead of reasoning from what people actually said and did.</p>
+<p>It also means there is only one route to improving HIE: <strong>more detailed, more comprehensive, higher-quality input data</strong>. When a simulation needs to be more accurate, we improve what goes in, never by feeding back what comes out.</p>
+<div class="callout">Inputs are the past, a study's outputs are the present, and simulations are the future.<span>Trained only on inputs, the engine has no sense of past, present or future. Reproducing a study that has already happened and anticipating one that has not are the same task, which is why HIE's validation results are a strong anchor for trusting its simulations.</span></div>
 <p>The animation below walks the build end to end: from an empty shell, through training and calibration, to hundreds of distinct virtual personas interacting inside dynamic virtual worlds. Use the controls to pause or step through it.</p>
 </div>
 
 <figure class="hie" data-hie="1" tabindex="0" aria-label="Animation: how HIE is built, seven steps. Focus and use arrow keys to step, space to pause."></figure>
 
 <div class="wrap">
-<h2><span class="n">02</span>How a virtual persona is built</h2>
+<h2><span class="n">03</span>How a virtual persona is built</h2>
 <p>A virtual persona in HIE is a structured state model, not a character sketch. Each one is represented through four layers, which together decide what it can be, how it tends to behave, what can change, and where every part of it came from.</p>
 </div>
 <div class="wide"><div class="grid4">
@@ -156,7 +185,7 @@ figure.hie:fullscreen figcaption{display:none}
 <div class="wrap">
 <h3>From evidence to a calibrated agent</h3>
 <p>Building a virtual persona follows five steps: <strong>retrieve evidence</strong>, <strong>map it to the virtual persona schema</strong>, <strong>calibrate attributes and behavioural ranges</strong>, <strong>instantiate stochastic latent variation</strong>, and <strong>validate constraints and provenance</strong>.</p>
-<p>Calibration is where the shell becomes dynamic. Virtual persona segments are tested against real-world results, and their weights are adjusted until simulated behaviour matches what was observed. Once calibrated, the same machinery can take in new data and generate new virtual personas without being rebuilt.</p>
+<p>Calibration is where the shell becomes dynamic, and it never involves feeding in outputs. Simulated behaviour is compared with what was observed in the real world. Where accuracy falls short, the weights for new virtual personas are adjusted by feeding in more detailed, more comprehensive, higher-quality input data until simulations reach the accuracy needed. Once calibrated, the same machinery can take in new data and generate new virtual personas without being rebuilt.</p>
 <p>Stochastic Latent Seeding (SLS) is what turns one segment into many distinct virtual personas. The segment defines the behavioural envelope, and SLS decides where a particular virtual persona starts inside it. Two virtual personas from the same segment might begin with slightly different levels of trust, household pressure or risk tolerance, while both staying inside the calibrated evidence boundaries.</p>
 <div class="callout">Virtual persona schema = what this person can plausibly be. SLS = which plausible version is instantiated for this run.<span>This is why HIE produces a distribution of plausible responses rather than one deterministic answer.</span></div>
 <h3>What a virtual persona is, and is not, allowed to do</h3>
@@ -169,7 +198,7 @@ figure.hie:fullscreen figcaption{display:none}
 <li><b>The model does not redefine the virtual persona.</b>The underlying language model is frozen and works inside boundaries set by the engine.</li>
 </ol>
 
-<h2><span class="n">03</span>From virtual personas to virtual worlds</h2>
+<h2><span class="n">04</span>From virtual personas to virtual worlds</h2>
 <p>Individual virtual personas become useful when they are placed in context. HIE layers four structures on top of them.</p>
 <p><strong>The interaction graph</strong> governs how virtual personas affect each other. HIE does not simply concatenate responses. Each exchange is interpreted through relationships, trust, authority, social norms, influence and previous interactions, and can shift dynamic states such as trust or social permission.</p>
 <p><strong>Units and cohorts</strong> assemble virtual personas into households, panels, networks and communities against a sampling frame, with weights so the cohort represents a larger real population. Aggregation does not erase individual state.</p>
@@ -187,7 +216,7 @@ figure.hie:fullscreen figcaption{display:none}
 <div class="wrap">
 <p>A structured decision policy produces the choice or propensity. The language model then explains it in the virtual persona's voice. It expresses the virtual persona; it does not define it.</p>
 
-<h2><span class="n">04</span>Confidence at four levels</h2>
+<h2><span class="n">05</span>Confidence at four levels</h2>
 <p>HIE scores confidence at four levels, because a well-grounded virtual persona can still give a weak answer on an unfamiliar topic, and a strong answer can still come from a poorly designed study.</p>
 </div>
 <div class="wide"><div class="grid4">
@@ -209,7 +238,7 @@ figure.hie:fullscreen figcaption{display:none}
 <li><i style="background:#4A0F2E"></i><span><b>Audit and validation</b>: traceability, stability tests, backward validation, expert review</span></li>
 </ul>
 
-<h2><span class="n">05</span>Validated against real-world studies</h2>
+<h2><span class="n">06</span>Validated against real-world studies</h2>
 <p>The clearest test of HIE is backward validation: give the engine only the inputs of a completed real-world study, and compare what its virtual personas say or do with what real people said or did. Across four exercises spanning agriculture, financial inclusion and health, HIE reached <strong>94% to 99.5% benchmark similarity</strong>, with a substantially lower sample size and over multiple runs of the same study.</p>
 </div>
 <figure class="hie" data-hie="2" tabindex="0" aria-label="Animation: validation results and Virtual World Confidence. Focus and use arrow keys to step, space to pause."></figure>
@@ -220,7 +249,7 @@ figure.hie:fullscreen figcaption{display:none}
 <div class="card"><span class="k">Nigeria · Female sex workers</span><b>99%</b><p>Lagos University Teaching Hospital, HIV PrEP study. 310 respondents; mean positive response 59.35% human versus 59.83% simulated.</p></div>
 </div></div>
 <div class="wrap">
-<p>Backward validation sits alongside five other checks: <strong>holdout comparison</strong> against real observations not used to build the virtual personas; <strong>repeated-run stability</strong> across many SLS instantiations; <strong>sensitivity testing</strong> of assumptions, weights and conditions; <strong>expert review</strong> of behavioural mechanisms and delivery assumptions; and <strong>field calibration</strong>, where small real-world samples recalibrate parameters without replacing the evidence base.</p>
+<p>Backward validation sits alongside five other checks: <strong>holdout comparison</strong> against real observations not used to build the virtual personas; <strong>repeated-run stability</strong> across many SLS instantiations; <strong>sensitivity testing</strong> of assumptions, weights and conditions; <strong>expert review</strong> of behavioural mechanisms and delivery assumptions; and <strong>field calibration</strong>, where small real-world samples of original responses are added as new input to recalibrate parameters without replacing the evidence base.</p>
 </div>
 <div class="wide" style="max-width:808px"><div class="cols">
 <div class="card tint"><span class="k">Remains controlled and versioned</span><p style="margin:0">Source evidence, virtual persona schema, fixed demographic core, structural constraints, model weights, simulation rules, provenance, sampling frame.</p></div>
@@ -228,8 +257,8 @@ figure.hie:fullscreen figcaption{display:none}
 </div></div>
 <div class="wrap">
 
-<h2><span class="n">06</span>What this means for decisions</h2>
-<p>HIE lets a team test a policy, program, product, service or message against thousands of evidence-grounded virtual personas before committing resources, see where and why people would drop off, and compare scenarios side by side. Its outputs are directional hypotheses with an explicit confidence score and a traceable evidence trail. They sharpen where to invest, what to test in the field, and what to ask real people next, rather than replacing them.</p>
+<h2><span class="n">07</span>What this means for decisions</h2>
+<p>HIE lets a team test a policy, program, product, service, or message against thousands of evidence-grounded virtual personas before committing resources, see where and why people would drop off, and compare scenarios side by side. Its outputs are directional hypotheses with an explicit confidence score and a traceable evidence trail. They sharpen where to invest, what to test in the field, and what to ask real people next, rather than replacing them.</p>
 <div class="foot">Dalberg · Human Insights Engine · Confidential. Animation labels marked "Illustrative" show example variables, outcomes and sectors, not specific model outputs.</div>
 </div>
 </main>
@@ -429,7 +458,7 @@ steps:['Shell','Train','Segments','Calibrate','Virtual personas','Interact','Wor
 cap:['Every virtual persona starts as a shell: demographics, psychographics, behaviours and context, each defined by its own variables.',
 'The shell is trained on 3.2 billion real-world research data points, from evidence representing 1.6 million real-world participants. Inputs only.',
 'The trained shell generates virtual persona segments for each region: static profiles you can interact with.',
-'Segments are calibrated against real-world results until simulations match, turning the shell into a dynamic model.',
+'Accuracy improves only by feeding in richer, higher-quality input data, never outputs. As inputs improve, weights settle and the shell becomes dynamic.',
 'Slight variations on each variable turn one segment into hundreds of distinct virtual personas.',
 'Virtual personas interact, form groups, and engage with money, institutions, services and products.',
 'Together they form dynamic virtual worlds, generated on the go: 59.5 billion simulation data points so far.']},
